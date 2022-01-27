@@ -10,7 +10,7 @@ list(
     df_raw,
     readr::read_csv(pokemon_csv,
                     col_types = "ddccccccccddddddddddddddd",
-                    n_max = 300)
+                    n_max = 500)
   )
 )
 
