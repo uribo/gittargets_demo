@@ -8,7 +8,7 @@ list(
   ),
   tar_target(
     df_raw,
-    vroom::vroom(poke, n_max = 300)
+    data.table::fread(pokemon_csv, nrows = 300)
   )
 )
 
