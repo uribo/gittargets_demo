@@ -8,9 +8,7 @@ list(
   ),
   tar_target(
     df_raw,
-    readr::read_csv(pokemon_csv,
-                    col_types = "ddccccccccddddddddddddddd",
-                    n_max = 500)
+    data.table::fread(poke, nrows = 300)
   )
 )
 
