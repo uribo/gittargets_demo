@@ -8,7 +8,7 @@ list(
   ),
   tar_target(
     df_raw,
-    data.table::fread(poke, nrows = 300)
+    vroom::vroom(poke, n_max = 300)
   )
 )
 
