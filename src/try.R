@@ -13,3 +13,8 @@ tar_git_checkout(ref = sha)
 
 tar_read(body_lm)
 
+
+# aaa ---------------------------------------------------------------------
+# git commit
+tar_git_snapshot()
+tar_git_checkout()
