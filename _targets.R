@@ -9,6 +9,13 @@ list(
   tar_target(
     df_raw,
     data.table::fread(pokemon_csv, nrows = 300)
+  ),
+  tar_target(
+    body_lm,
+    df_raw[, list(NAME, HEIGHT, WEIGHT)] |>
+      janitor::clean_names() |>
+      lm(height ~ weight, data = _) |>
+      broom::tidy()
   )
 )
 
