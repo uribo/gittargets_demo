@@ -1,0 +1,70 @@
+name: targets-smoke-test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Check out repository
+        uses: actions/checkout@v4
+      # Sets up R for use in your workflow
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.4.3'
+
+      # Install system dependencies
+      - name: Install Linux system dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get install libcurl4-openssl-dev
+          sudo apt-get install libssl-dev
+          sudo apt-get install libzmq3-dev
+      
+      # Caches R packages to speed up future builds
+      - name: Cache R packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/R
+          key: ${{ runner.os }}-r-packages-${{ hashFiles('**/renv.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-r-packages-
+      # Caches the renv library to speed up future builds
+      - name: Cache renv library
+        uses: actions/cache@v4
+        with:
+          path: ~/.local/share/renv
+          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-renv-
+      # Restores packages from the renv lockfile
+      - name: Restore renv packages
+        shell: Rscript {0}
+        run: |
+          # Restore packages from the lockfile
+          if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+          renv::restore()
+      # Validates the structure of the targets pipeline
+      - name: Validate pipeline structure
+        shell: Rscript {0}
+        run: |
+          # Check the validity of the pipeline structure
+          targets::tar_validate()
+      # Checks for outdated targets and fails the job if any are found
+      - name: Check for outdated targets
+        shell: Rscript {0}
+        run: |
+          # Check for outdated targets and fail if any exist
+          outdated_targets <- targets::tar_outdated()
+          if (length(outdated_targets) > 0) {
+            print(paste("Number of outdated targets:", length(outdated_targets)))
+            print("Outdated targets:")
+            print(outdated_targets)
+            stop("Pipeline has outdated targets.")
+          } else {
+            print("All targets are up to date.")
+          }
