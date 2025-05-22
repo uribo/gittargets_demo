@@ -8,7 +8,7 @@ list(
   ),
   tar_target(
     df_raw,
-    data.table::fread(pokemon_csv, nrows = 300)
+    data.table::fread(pokemon_csv, nrows = 310)
   ),
   tar_target(
     body_lm,

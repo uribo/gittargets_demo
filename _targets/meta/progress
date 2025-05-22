@@ -1,4 +1,6 @@
 name|type|parent|branches|progress
 pokemon_csv|stem|pokemon_csv|0|skipped
-df_raw|stem|df_raw|0|skipped
-body_lm|stem|body_lm|0|skipped
+df_raw|stem|df_raw|0|dispatched
+df_raw|stem|df_raw|0|completed
+body_lm|stem|body_lm|0|dispatched
+body_lm|stem|body_lm|0|completed
