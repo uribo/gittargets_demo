@@ -1,4 +1,5 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
 pokemon_csv|stem|8043612cd1ceefbd|aebbb5ac1b590fd5|2c530c1562a7fbd1|70350937|https://gist.githubusercontent.com/simsketch/1a029a8d7fca1e4c142cbfd043a68f19/raw/bd584ee6c307cc9fab5ba38916e98a85de9c2ba7/pokemon.csv|t20230.0687347358s||0|url|local|vector|||0||
-df_raw|stem|7cb4584486034abe|1dd5861c1422ba1b|056c4ff6a05bdd40|-796806726||t20230.0687387863s|s10889b|10889|rds|local|vector|||0.331||
-body_lm|stem|3d3c0463e25438d6|1079a44926c6b761|646465fff190b266|1632123147||t20230.0687408815s|s275b|275|rds|local|vector|||0.165||
+df_raw|stem|7cb4584486034abe|1dd5861c1422ba1b|056c4ff6a05bdd40|-796806726||t20230.1506697581s|s10889b|10889|rds|local|vector|||0.331||
+body_lm|stem|3d3c0463e25438d6|1079a44926c6b761|646465fff190b266|1632123147||t20230.1506724898s|s275b|275|rds|local|vector|||0.215||
+.Random.seed|object|950c115c3c7f98f5
