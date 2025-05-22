@@ -1,4 +1,4 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
-body_lm|stem|93619ba89c7fc432|d6917d1758e5f945|009be4907c6148e2|38500214||t19376.5946848515s|6e2ad1e2d4a7cab8|275|rds|local|vector|||0.315||
-df_raw|stem|baca7c4b42890b86|e611b7d8f4d56393|c17cee12c54e9f05|666883541||t19376.5946848552s|232d10efe82c8966|10895|rds|local|vector|||0.049||
-pokemon_csv|stem|a5a977c8d0c9092b|1a1533cb7ed0d137|ef46db3751d8e999|-1051925926|https://gist.githubusercontent.com/simsketch/1a029a8d7fca1e4c142cbfd043a68f19/raw/bd584ee6c307cc9fab5ba38916e98a85de9c2ba7/pokemon.csv|t19376.3968416683s||0|url|local|vector|||0.001||
+pokemon_csv|stem|8043612cd1ceefbd|aebbb5ac1b590fd5|2c530c1562a7fbd1|70350937|https://gist.githubusercontent.com/simsketch/1a029a8d7fca1e4c142cbfd043a68f19/raw/bd584ee6c307cc9fab5ba38916e98a85de9c2ba7/pokemon.csv|t20230.0687347358s||0|url|local|vector|||0||
+df_raw|stem|7cb4584486034abe|1dd5861c1422ba1b|056c4ff6a05bdd40|-796806726||t20230.0687387863s|s10889b|10889|rds|local|vector|||0.331||
+body_lm|stem|3d3c0463e25438d6|1079a44926c6b761|646465fff190b266|1632123147||t20230.0687408815s|s275b|275|rds|local|vector|||0.165||
