@@ -16,9 +16,18 @@ jobs:
         uses: r-lib/actions/setup-r@v2
         with:
           r-version: '4.4.3'
+
+      # Install system dependencies
+      - name: Install Linux system dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get install libcurl4-openssl-dev
+          sudo apt-get install libssl-dev
+          sudo apt-get install libzmq3-dev
+      
       # Caches R packages to speed up future builds
       - name: Cache R packages
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.cache/R
           key: ${{ runner.os }}-r-packages-${{ hashFiles('**/renv.lock') }}
@@ -26,7 +35,7 @@ jobs:
             ${{ runner.os }}-r-packages-
       # Caches the renv library to speed up future builds
       - name: Cache renv library
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.local/share/renv
           key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
